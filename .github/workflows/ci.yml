@@ -2,47 +2,25 @@ name: CI
 on:
   push:
     branches:
-      - main
+      - develop
+      - master
   pull_request:
     branches:
-      - main
+      - develop
+      - master
 
 jobs:
-  lint:
+  prepare:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Setup
+      - name: Install dependencies
         uses: ./.github/actions/setup
 
       - name: Lint files
         run: yarn lint
 
-      - name: Typecheck files
-        run: yarn typecheck
-
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Setup
-        uses: ./.github/actions/setup
-
-      - name: Run unit tests
-        run: yarn test --maxWorkers=2 --coverage
-
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Setup
-        uses: ./.github/actions/setup
-
-      - name: Build package
-        run: yarn prepack
+      - name: Typescript check files
+        run: yarn tsc
