@@ -20,8 +20,8 @@ runs:
           ${{ runner.os }}-npm-
 
     - name: Install dependencies
-      if: steps.yarn-cache.outputs.cache-hit != 'true'
+      if: steps.npm-cache.outputs.cache-hit != 'true'
       run: |
-        npm install --cwd example --frozen-lockfile
+        npm install --frozen-lockfile
         npm install --frozen-lockfile
       shell: bash
