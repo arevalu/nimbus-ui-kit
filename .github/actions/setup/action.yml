@@ -22,5 +22,6 @@ runs:
     - name: Install dependencies
       if: steps.npm-cache.outputs.cache-hit != 'true'
       run: |
-        npm ci --ignore-scripts
+        |
+        npm install --frozen-lockfile
       shell: bash
