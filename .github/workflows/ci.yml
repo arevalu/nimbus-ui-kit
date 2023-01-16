@@ -20,7 +20,10 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Lint files
-        run: yarn lint
+        run: npm run lint
 
       - name: Typescript check files
-        run: yarn tsc
+        run: npm run tsc
+
+      - name: Audit dependencies
+        run: npm audit
