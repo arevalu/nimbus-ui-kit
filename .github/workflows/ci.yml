@@ -2,10 +2,12 @@ name: CI
 on:
   push:
     branches:
-      - [develop, master]
+      - develop
+      - master
   pull_request:
     branches:
-      - [develop, master]
+      - develop
+      - master
 
 jobs:
   install:
@@ -22,3 +24,10 @@ jobs:
 
       - name: Typescript check files
         run: npm run tsc
+
+      - name: Audit dependencies
+        uses: oke-py/npm-audit-action@v2
+        with:
+          audit_level: moderate
+          github_token: ${{ secrets.NIMBUS_GITHUB_TOKEN }}
+          create_issues: false
