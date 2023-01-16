@@ -31,3 +31,4 @@ jobs:
           audit_level: moderate
           github_token: ${{ secrets.NIMBUS_GITHUB_TOKEN }}
           create_issues: false
+          json_flag: true
