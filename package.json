@@ -124,6 +124,7 @@
   "overrides": {
     "@mdx-js/mdx": "2.2.1",
     "meow": "8.1.2",
+    "minimatch": "3.1.2",
     "prismjs": "1.29.0",
     "shell-quote": "1.7.4"
   },
