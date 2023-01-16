@@ -70,8 +70,11 @@ android/keystores/debug.keystore
 lib/
 
 # storybook
-storybook-static
+docs-build
 build-storybook.log
+
+# ESLint
+.eslintcache
 
 # Environment variables
 .env

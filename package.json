@@ -28,7 +28,7 @@
   "scripts": {
     "test": "jest",
     "tsc": "tsc --noEmit",
-    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "lint": "eslint 'src/**/*.{js,ts,tsx}' --max-warnings=0 --cache",
     "prepare": "bob build && tsconfig-replace-paths --project tsconfig.json -s ./src -o ./lib/commonjs && tsconfig-replace-paths --project tsconfig.json -s ./src -o ./lib/module",
     "preinstall": "npx force-resolutions",
     "prepack": "bob build",
@@ -36,7 +36,7 @@
     "prestorybook": "rnstl",
     "storybook": "start-storybook -p 6006",
     "start-storybook-web": "./node_modules/@storybook/react/bin/index.js",
-    "build-storybook": "build-storybook",
+    "build-storybook": "build-storybook -o docs-build",
     "chromatic": "npx chromatic"
   },
   "keywords": [
@@ -56,6 +56,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.12.9",
+    "@babel/eslint-parser": "7.19.1",
     "@babel/runtime": "7.12.5",
     "@commitlint/config-conventional": "11.0.0",
     "@etchteam/storybook-addon-status": "4.2.1",
