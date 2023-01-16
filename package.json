@@ -66,7 +66,7 @@
     "@release-it/conventional-changelog": "2.0.0",
     "@storybook/addon-actions": "6.5.6",
     "@storybook/addon-controls": "6.5.6",
-    "@storybook/addon-docs": "6.5.6",
+    "@storybook/addon-docs": "6.5.15",
     "@storybook/addon-essentials": "6.5.6",
     "@storybook/addon-interactions": "6.5.6",
     "@storybook/addon-links": "6.5.6",
@@ -123,8 +123,10 @@
     "tsconfig-paths-webpack-plugin": "3.5.2",
     "tsconfig-replace-paths": "0.0.11",
     "typescript": "4.5.5",
-    "webp-loader": "0.6.0",
     "webpack": "5.40.0"
+  },
+  "overrides": {
+    "meow": "8.1.2"
   },
   "resolutions": {
     "@types/react": "^17"
