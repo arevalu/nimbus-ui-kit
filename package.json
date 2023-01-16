@@ -123,7 +123,8 @@
   },
   "overrides": {
     "@mdx-js/mdx": "2.2.1",
-    "meow": "8.1.2"
+    "meow": "8.1.2",
+    "shell-quote": "1.7.4"
   },
   "resolutions": {
     "@types/react": "^17"
