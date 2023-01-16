@@ -32,7 +32,6 @@
     "prepare": "bob build && tsconfig-replace-paths --project tsconfig.json -s ./src -o ./lib/commonjs && tsconfig-replace-paths --project tsconfig.json -s ./src -o ./lib/module",
     "preinstall": "npx force-resolutions",
     "prepack": "bob build",
-    "release": "release-it",
     "prestorybook": "rnstl",
     "storybook": "start-storybook -p 6006",
     "start-storybook-web": "./node_modules/@storybook/react/bin/index.js",
@@ -115,7 +114,6 @@
     "react-native-storybook-loader": "2.0.5",
     "react-native-web": "0.17.5",
     "react-refresh": "0.14.0",
-    "release-it": "14.2.2",
     "remark-gfm": "3.0.1",
     "storybook-addon-performance": "0.16.1",
     "ts-loader": "9.2.6",
@@ -138,23 +136,6 @@
   },
   "engines": {
     "node": ">= 16.0.0"
-  },
-  "release-it": {
-    "git": {
-      "commitMessage": "chore: release ${version}",
-      "tagName": "v${version}"
-    },
-    "npm": {
-      "publish": true
-    },
-    "github": {
-      "release": true
-    },
-    "plugins": {
-      "@release-it/conventional-changelog": {
-        "preset": "angular"
-      }
-    }
   },
   "react-native-builder-bob": {
     "source": "src",
