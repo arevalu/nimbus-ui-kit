@@ -10,7 +10,7 @@ on:
       - master
 
 jobs:
-  prepare:
+  install:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -19,6 +19,10 @@ jobs:
       - name: Install dependencies
         uses: ./.github/actions/setup
 
+  prepare:
+    runs-on: ubuntu-latest
+    needs: [install]
+    steps:
       - name: Lint files
         run: npm run lint
 
