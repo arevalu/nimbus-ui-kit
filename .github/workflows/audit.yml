@@ -1,4 +1,5 @@
-name: CI
+name: npm audit
+
 on:
   push:
     branches:
@@ -8,7 +9,8 @@ on:
       - [develop, master]
 
 jobs:
-  install:
+  scan:
+    name: npm audit
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -16,9 +18,10 @@ jobs:
 
       - name: Install dependencies
         uses: ./.github/actions/setup
-        
-      - name: Lint files
-        run: npm run lint
 
-      - name: Typescript check files
-        run: npm run tsc
+      - name: Audit
+      - uses: oke-py/npm-audit-action@v2
+        with:
+          audit_level: moderate
+          github_token: ${{ secrets.NIMBUS_GITHUB_TOKEN }}
+          create_issues: false
