@@ -123,6 +123,7 @@
   },
   "overrides": {
     "@mdx-js/mdx": "2.2.1",
+    "ejs": "3.1.7",
     "immer": "9.0.6",
     "loader-utils": ">=1.4.2",
     "meow": "8.1.2",
