@@ -1,10 +1,13 @@
 name: Build and Deploy Docs
 on: 
+  pull_request:
+    branches:
+      - develop
   push:
     branches:
       - develop
       - master
-    paths: ["src/components/**"]
+    # paths: ["src/components/**"]
 
 jobs:
   chromatic-test:
@@ -40,7 +43,7 @@ jobs:
           npm run build-storybook
 
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@3.6.2
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
           GITHUB_TOKEN: ${{ secrets.NIMBUS_STORYBOOK_TOKEN }}
           FOLDER: docs-build
