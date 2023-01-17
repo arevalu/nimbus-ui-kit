@@ -1,0 +1,48 @@
+name: Build and Deploy
+on: 
+  push:
+    branches:
+      - develop
+      - master
+    paths: ["src/components/**"]
+
+jobs:
+  chromatic-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Required to retrieve git history
+
+      - name: Install dependencies
+        uses: ./.github/actions/setup
+
+      - name: Publish to Chromatic
+        uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+
+  storybook-build-and-deploy:
+    runs-on: ubuntu-latest
+    needs: chromatic-test
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+
+      - name: Install dependencies
+        uses: ./.github/actions/setup
+
+      - name: Build
+        run: |
+          npm run build-storybook
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@3.6.2
+        with:
+          GITHUB_TOKEN: ${{ secrets.NIMBUS_STORYBOOK_TOKEN }}
+          FOLDER: docs-build
+          CLEAN: true
+          TARGET_FOLDER: docs
