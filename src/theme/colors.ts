@@ -34,4 +34,12 @@ export const Colors = {
   accentGreen60: 'rgba(0, 203, 130, 0.6)',
   accentGreen80: 'rgba(0, 203, 130, 0.8)',
   accentGreen100: 'rgba(0, 203, 130, 1)',
+
+  neutral00: '#FAFAFA',
+  neutral20: '#E0E1E6',
+  neutral40: '#CFD0D3',
+  neutral60: '#B1B3BC',
+  neutral80: '#868898',
+  neutral100: '#565969',
+  neutral120: '#212330',
 };
