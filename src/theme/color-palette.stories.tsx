@@ -77,5 +77,18 @@ storiesOf('Colors/Palette', module)
           '100': Colors.accentGreen100,
         }}
       />
+      <ColorItem
+        title="Neutral"
+        subtitle=""
+        colors={{
+          '00': Colors.neutral00,
+          '20': Colors.neutral20,
+          '40': Colors.neutral40,
+          '60': Colors.neutral60,
+          '80': Colors.neutral80,
+          '100': Colors.neutral100,
+          '120': Colors.neutral120,
+        }}
+      />
     </ColorPalette>
   ));
