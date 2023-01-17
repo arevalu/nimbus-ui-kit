@@ -7,7 +7,7 @@ on:
     branches:
       - develop
       - master
-    # paths: ["src/components/**"]
+    paths: ["src/components/**"]
 
 jobs:
   chromatic-test:
@@ -42,8 +42,20 @@ jobs:
         run: |
           npm run build-storybook
 
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: 🚀 Deploy
+        if: ${{ github.ref == 'ref/heads/master' }}
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          folder: docs-build
-          clean: true
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_NIMBUS_UIKIT }}'
+          channelId: live
+          projectId: nimbus-uikit
+
+      - name: Development deployment
+        if: ${{ github.ref == 'ref/heads/develop' }}
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_NIMBUS_UIKIT_DEV }}'
+          channelId: live
+          projectId: nimbus-uikit-dev
