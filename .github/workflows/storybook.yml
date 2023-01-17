@@ -1,8 +1,5 @@
 name: Build and Deploy Docs
 on: 
-  pull_request:
-    branches:
-      - develop
   push:
     branches:
       - develop
@@ -42,15 +39,6 @@ jobs:
         run: |
           npm run build-storybook
 
-      - name: 🚀 Deploy
-        if: ${{ github.ref == 'ref/heads/master' }}
-        uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_NIMBUS_UIKIT }}'
-          channelId: live
-          projectId: nimbus-uikit
-
       - name: Development deployment
         if: ${{ github.ref == 'ref/heads/develop' }}
         uses: FirebaseExtended/action-hosting-deploy@v0
@@ -59,3 +47,12 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_NIMBUS_UIKIT_DEV }}'
           channelId: live
           projectId: nimbus-uikit-dev
+
+      - name: Deploy
+        if: ${{ github.ref == 'ref/heads/master' }}
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_NIMBUS_UIKIT }}'
+          channelId: live
+          projectId: nimbus-uikit
