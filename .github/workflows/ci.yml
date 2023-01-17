@@ -10,7 +10,7 @@ on:
       - master
 
 jobs:
-  install:
+  prepare:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -28,7 +28,7 @@ jobs:
       - name: Audit dependencies
         uses: oke-py/npm-audit-action@v2
         with:
-          audit_level: moderate
+          audit_level: critical
           github_token: ${{ secrets.NIMBUS_GITHUB_TOKEN }}
           create_issues: false
           json_flag: true
