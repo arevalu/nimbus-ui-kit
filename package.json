@@ -123,6 +123,7 @@
   },
   "overrides": {
     "@mdx-js/mdx": "2.2.1",
+    "immer": "9.0.6",
     "meow": "8.1.2",
     "minimatch": "3.1.2",
     "prismjs": "1.29.0",
