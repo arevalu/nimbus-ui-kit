@@ -45,7 +45,6 @@ jobs:
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          GITHUB_TOKEN: ${{ secrets.NIMBUS_STORYBOOK_TOKEN }}
-          FOLDER: docs-build
+          token: ${{ secrets.NIMBUS_STORYBOOK_TOKEN }}
+          folder: docs-build
           CLEAN: true
-          TARGET_FOLDER: docs
