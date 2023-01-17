@@ -2,7 +2,7 @@ pre-commit:
   parallel: true
   commands:
     lint:
-      glob: "*.{js,ts,jsx,tsx}"
+      glob: "src/**/*.{js,ts,tsx}"
       run: npx eslint {files}
     typescript:
       glob: "*.{js,ts, jsx, tsx}"
