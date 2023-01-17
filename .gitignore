@@ -78,3 +78,6 @@ build-storybook.log
 
 # Environment variables
 .env
+
+# Firebase
+.firebase

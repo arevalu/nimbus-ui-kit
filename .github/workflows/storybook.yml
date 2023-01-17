@@ -39,10 +39,20 @@ jobs:
         run: |
           npm run build-storybook
 
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@3.6.2
+      - name: Development deployment
+        if: ${{ github.ref == 'ref/heads/develop' }}
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          GITHUB_TOKEN: ${{ secrets.NIMBUS_STORYBOOK_TOKEN }}
-          FOLDER: docs-build
-          CLEAN: true
-          TARGET_FOLDER: docs
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_NIMBUS_UIKIT_DEV }}'
+          channelId: live
+          projectId: nimbus-uikit-dev
+
+      - name: Deploy
+        if: ${{ github.ref == 'ref/heads/master' }}
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_NIMBUS_UIKIT }}'
+          channelId: live
+          projectId: nimbus-uikit

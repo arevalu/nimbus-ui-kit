@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "production": "nimbus-uikit",
+    "development": "nimbus-uikit-dev",
+    "default": "nimbus-uikit-dev"
+  },
+  "targets": {},
+  "etags": {}
+}
