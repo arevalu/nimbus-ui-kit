@@ -9,8 +9,8 @@ export default {
   component: H1,
 } as ComponentMeta<H1Type>;
 
-export const Template: ComponentStory<H1Type> = args => (
+export const Component: ComponentStory<H1Type> = args => (
   <H1 {...args}>Some text </H1>
 );
 
-Template.storyName = 'H1';
+Component.storyName = 'H1';
