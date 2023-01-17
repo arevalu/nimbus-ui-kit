@@ -2,8 +2,7 @@ pre-commit:
   parallel: true
   commands:
     lint:
-      glob: "src/**/*.{js,ts,tsx}"
-      run: npx eslint {files}
+      run: npx eslint 'src/**/*.{js,ts,tsx}' --max-warnings=0 --cache
     typescript:
       glob: "*.{js,ts, jsx, tsx}"
       run: npx tsc --noEmit
