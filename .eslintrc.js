@@ -19,5 +19,8 @@ module.exports = {
         useTabs: false,
       },
     ],
+
+    // Typescript
+    'no-shadow': 'off',
   },
 };

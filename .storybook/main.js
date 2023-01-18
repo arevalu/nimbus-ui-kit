@@ -1,6 +1,7 @@
 const custom = require('../webpack.config.js');
 
 module.exports = {
+  staticDirs: ['../src/assets'],
   stories: ['../src/**/*.stories.@(mdx|ts|tsx)'],
   addons: [
     '@storybook/addon-links',
