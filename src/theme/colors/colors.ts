@@ -43,3 +43,6 @@ export const Colors = {
   neutral100: '#565969',
   neutral120: '#212330',
 };
+
+export type ColorsType = typeof Colors;
+export type ColorsKey = keyof ColorsType;
