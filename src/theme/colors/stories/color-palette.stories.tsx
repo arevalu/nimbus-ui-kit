@@ -26,6 +26,7 @@ const Color: FC<ColorProps> = ({ code, color, name }) => (
 storiesOf('Styles/Colors', module)
   .addParameters({
     ...hideDocsTab,
+    options: { showPanel: false },
   })
   .add('Colors', () => (
     <div>
